@@ -5,6 +5,8 @@ python-dotenv
 groq
 
 langchain
+langchain_groq
+langsmith
 langchain-community
 langchain-text-splitters
 

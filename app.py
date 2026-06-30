@@ -1,4 +1,5 @@
 import streamlit as st
+import uuid
 
 from utils.llm import get_llm
 from resume_jd.resume_parser import parse_resume
@@ -298,11 +299,16 @@ if not st.session_state.started and not st.session_state.finished:
     )
 
 
+
 # --------------------------------------------------
 # Interview Screen
 # --------------------------------------------------
 
 elif st.session_state.started:
+
+    if start:
+
+        st.session_state.session_id = str(uuid.uuid4())
 
     # Show complete conversation
 

@@ -1,10 +1,11 @@
 from evaluation.confidence import evaluate_confidence
 from evaluation.communication import evaluate_communication
 from evaluation.technical import evaluate_technical
+from langsmith import traceable
 
 from evaluation.final_feedback import generate_final_feedback
 
-
+@traceable(run_name="Evaluate Interview")
 def evaluate_interview(
     model,
     transcript

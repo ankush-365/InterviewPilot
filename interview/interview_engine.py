@@ -1,8 +1,10 @@
 from interview.classifier import classify_question
 from interview.transcript import add_interaction
+from langsmith import traceable
 
 from config.settings import QUESTION_WEIGHTS
 
+@traceable(run_name="Generate Next Question")
 def generate_next_question(
 model,interviewer_prompt,transcript,resume,job_description):
 
@@ -35,6 +37,7 @@ model,interviewer_prompt,transcript,resume,job_description):
 
     return response.content.strip()
 
+@traceable(run_name="Classify Question")
 def process_answer(
 model,
 transcript,
